@@ -1,0 +1,360 @@
+:py:mod:`fairymwah.wrappers.mwahwrapper`
+========================================
+
+.. py:module:: fairymwah.wrappers.mwahwrapper
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   fairymwah.wrappers.mwahwrapper.setdefaultpath
+   fairymwah.wrappers.mwahwrapper.localworkingdir
+   fairymwah.wrappers.mwahwrapper.exec_python_lwd
+   fairymwah.wrappers.mwahwrapper.subprocess_lwd
+   fairymwah.wrappers.mwahwrapper.create_folder_structure
+   fairymwah.wrappers.mwahwrapper.clone_summa_repo
+   fairymwah.wrappers.mwahwrapper.compile_summa
+   fairymwah.wrappers.mwahwrapper.clone_mizuroute_repo
+   fairymwah.wrappers.mwahwrapper.compile_mizuroute
+   fairymwah.wrappers.mwahwrapper.download_ERA5_pressureLevel_annual
+   fairymwah.wrappers.mwahwrapper.download_ERA5_surfaceLevel_annual
+   fairymwah.wrappers.mwahwrapper.run_download_ERA5_pressureLevel_paralell
+   fairymwah.wrappers.mwahwrapper.run_download_ERA5_surfaceLevel_paralell
+   fairymwah.wrappers.mwahwrapper.download_ERA5_geopotential
+   fairymwah.wrappers.mwahwrapper.merge_forcing
+   fairymwah.wrappers.mwahwrapper.create_ERA5_shapefile
+   fairymwah.wrappers.mwahwrapper.download_merit_hydro_adjusted_elevation
+   fairymwah.wrappers.mwahwrapper.unpack_merit_hydro
+   fairymwah.wrappers.mwahwrapper.create_merit_hydro_virtual_dataset
+   fairymwah.wrappers.mwahwrapper.specify_merit_hydro_subdomain
+   fairymwah.wrappers.mwahwrapper.convert_merit_hydro_vrt_to_tif
+   fairymwah.wrappers.mwahwrapper.download_modis_mcd12q1_v6
+   fairymwah.wrappers.mwahwrapper.create_modis_virtual_dataset
+   fairymwah.wrappers.mwahwrapper.reproject_modis_virtual_dataset
+   fairymwah.wrappers.mwahwrapper.specify_modis_subdomain
+   fairymwah.wrappers.mwahwrapper.create_multiband_modis_vrt
+   fairymwah.wrappers.mwahwrapper.convert_modis_vrt_to_tif
+   fairymwah.wrappers.mwahwrapper.find_mode_modis_landclass
+   fairymwah.wrappers.mwahwrapper.download_soilgrids_soilclass_global
+   fairymwah.wrappers.mwahwrapper.extract_soilgrids_domain
+   fairymwah.wrappers.mwahwrapper.sort_catchment_shape
+   fairymwah.wrappers.mwahwrapper.find_HRU_elevation
+   fairymwah.wrappers.mwahwrapper.find_HRU_soil_classes
+   fairymwah.wrappers.mwahwrapper.find_HRU_land_classes
+   fairymwah.wrappers.mwahwrapper.make_single_weighted_forcing_file
+   fairymwah.wrappers.mwahwrapper.make_all_weighted_forcing_files
+   fairymwah.wrappers.mwahwrapper.temperature_lapsing_and_datastep
+   fairymwah.wrappers.mwahwrapper.read_mizuroute_base_settings
+   fairymwah.wrappers.mwahwrapper.copy_mizuroute_base_settings
+   fairymwah.wrappers.mwahwrapper.create_mizuroute_network_topology_file
+   fairymwah.wrappers.mwahwrapper.remap_summa_catchments_to_mizurouting
+   fairymwah.wrappers.mwahwrapper.create_mizuroute_control_file
+   fairymwah.wrappers.mwahwrapper.read_summa_base_settings
+   fairymwah.wrappers.mwahwrapper.copy_summa_base_settings
+   fairymwah.wrappers.mwahwrapper.create_summa_file_manager
+   fairymwah.wrappers.mwahwrapper.create_summa_forcing_file_list
+   fairymwah.wrappers.mwahwrapper.create_cold_state
+   fairymwah.wrappers.mwahwrapper.create_trial_parameters
+   fairymwah.wrappers.mwahwrapper.initialize_summa_attributes_nc
+   fairymwah.wrappers.mwahwrapper.insert_soilclass_from_hist_into_summa_attributes
+   fairymwah.wrappers.mwahwrapper.insert_landclass_from_hist_into_summa_attributes
+   fairymwah.wrappers.mwahwrapper.insert_elevation_from_hist_into_summa_attributes
+   fairymwah.wrappers.mwahwrapper.run_summa
+   fairymwah.wrappers.mwahwrapper.run_summa_as_array
+   fairymwah.wrappers.mwahwrapper.run_mizuroute
+   fairymwah.wrappers.mwahwrapper.plot_mizuroute_and_summa_shapefiles
+   fairymwah.wrappers.mwahwrapper.plot_ERA5_download_coordinates_and_catchment_shapefile
+   fairymwah.wrappers.mwahwrapper.plot_forcing_grid_vs_catchment_averaged
+   fairymwah.wrappers.mwahwrapper.plot_temperature_lapse_rates
+   fairymwah.wrappers.mwahwrapper.plot_geospatial_parameters_to_model_elements
+   fairymwah.wrappers.mwahwrapper.plot_SWE_SM_ET_Q_per_GRU
+   fairymwah.wrappers.mwahwrapper.plot_SWE_and_streamflow_per_HRU
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   fairymwah.wrappers.mwahwrapper.submodule_path
+   fairymwah.wrappers.mwahwrapper.mwah_sbmodule_folder
+
+
+.. py:data:: submodule_path
+   
+
+   
+
+.. py:function:: setdefaultpath(submodule_path)
+
+
+.. py:function:: localworkingdir(func)
+
+   Decorator - Changes working dir to script_path and resets working dir afterwards
+
+
+.. py:function:: exec_python_lwd(script_path, *args, **kwargs)
+
+   Executes python script with localized working directory.
+   Changes working dir to folder of python script before executing.
+   Then changes back to original working directory.
+
+   Args:
+       script_path (path string): Path to python script
+
+
+.. py:function:: subprocess_lwd(script_path, *args, **kwargs)
+
+
+.. py:function:: create_folder_structure(submodule_path: str = None)
+
+   Executes the code from summaWorkflow_public step 1_folder_prep. Description from local python file:
+   SUMMA workflow: make folder structure
+   Makes the initial folder structure for a given control file. All other files in the workflow will look for the file `control_active.txt` during their execution. This script:
+
+   1. Copies the specified control file into `control_active.txt`;
+   2. Prepares a folder structure using the settings in `control_active.txt`.
+   3. Creates a copy of itself to be stored in the new folder structure.
+
+   The destination folders are referred to as "domain folders".
+
+   :param submodule_path: path to the summaWorkflow_public repository. Defaults to "../submodules/summaWorkflow_public".
+   :type submodule_path: str
+
+
+.. py:function:: clone_summa_repo(submodule_path: str = os.path.join(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', '..', 'submodules', 'summaWorkflow_public')))
+
+   This code downloads the latest version of the code base. sh script.
+   Settings are given in the control file of mwah.
+
+   Relevant settings in `control_active.txt` that the code in this folder uses:
+   - **github_summa, github_mizu**: GitHub URLs from which to clone SUMMA and mizuRoute.
+
+   Args:
+       submodule_path (str, optional): path to the summaWorkflow_public repository. 
+       Defaults to "../submodules/summaWorkflow_public".
+
+
+.. py:function:: compile_summa(submodule_path: str)
+
+   [Description]]
+
+   Args:
+       submodule_path (str, optional): path to the summaWorkflow_public repository. 
+
+
+.. py:function:: clone_mizuroute_repo(submodule_path: str)
+
+   [Description]]
+
+   Args:
+       submodule_path (str, optional): path to the summaWorkflow_public repository. 
+
+
+.. py:function:: compile_mizuroute(submodule_path: str)
+
+   [Description]]
+
+   Args:
+       submodule_path (str, optional): path to the summaWorkflow_public repository. 
+
+
+.. py:function:: download_ERA5_pressureLevel_annual()
+
+
+.. py:function:: download_ERA5_surfaceLevel_annual()
+
+
+.. py:function:: run_download_ERA5_pressureLevel_paralell()
+
+
+.. py:function:: run_download_ERA5_surfaceLevel_paralell()
+
+
+.. py:function:: download_ERA5_geopotential()
+
+
+.. py:function:: merge_forcing(submodule_path: str = submodule_path)
+
+   3a_forcing, 2_merge_forcing
+   Combine separate surface and pressure level downloads
+   Creates a single monthly `.nc` file with SUMMA-ready variables for further processing. 
+   Combines ERA5's `u` and `v` wind components into a single directionless wind vector.
+
+   This script goes through the following steps:
+   1. Convert longitude coordinates in pressureLevel file to range [-180,180]
+   2. Checks
+   - are lat/lon the same for both data sets?
+   - are times the same for both datasets?
+   3. Aggregate data into a single file 'ERA5_NA_[yyyymm].nc', keeping the relevant metadata in place
+
+       Args:
+           submodule_path (str, optional): path to the summaWorkflow_public repository. Defaults to submodule_path.
+       
+
+
+.. py:function:: create_ERA5_shapefile(submodule_path: str = submodule_path)
+
+   mwah workflow 3a_forcing, 3_create_shapefile
+       The shapefile for the forcing data needs to represent the regular latitude/longitude grid of the ERA5 data. We need this for later intersection with the catchment shape(s) so we can create appropriately weighted forcing for each model element.
+
+   Notebook/script reads location of merged forcing data and the spatial extent of the data from the control file. 
+
+   ## Assumptions not included in `control_active.txt`
+   - Code assumes that the merged forcing contains dimension variables with the names "latitude" and "longitude". This is the case for ERA5. 
+
+       Args:
+           submodule_path (str, optional): [description]. Defaults to submodule_path.
+       
+
+
+.. py:function:: download_merit_hydro_adjusted_elevation()
+
+
+.. py:function:: unpack_merit_hydro()
+
+
+.. py:function:: create_merit_hydro_virtual_dataset()
+
+
+.. py:function:: specify_merit_hydro_subdomain()
+
+
+.. py:function:: convert_merit_hydro_vrt_to_tif()
+
+
+.. py:function:: download_modis_mcd12q1_v6()
+
+
+.. py:function:: create_modis_virtual_dataset()
+
+
+.. py:function:: reproject_modis_virtual_dataset()
+
+
+.. py:function:: specify_modis_subdomain()
+
+
+.. py:function:: create_multiband_modis_vrt()
+
+
+.. py:function:: convert_modis_vrt_to_tif()
+
+
+.. py:function:: find_mode_modis_landclass()
+
+
+.. py:function:: download_soilgrids_soilclass_global()
+
+
+.. py:function:: extract_soilgrids_domain()
+
+
+.. py:function:: sort_catchment_shape()
+
+
+.. py:function:: find_HRU_elevation()
+
+
+.. py:function:: find_HRU_soil_classes()
+
+
+.. py:function:: find_HRU_land_classes()
+
+
+.. py:function:: make_single_weighted_forcing_file()
+
+
+.. py:function:: make_all_weighted_forcing_files()
+
+
+.. py:function:: temperature_lapsing_and_datastep()
+
+
+.. py:function:: read_mizuroute_base_settings()
+
+
+.. py:function:: copy_mizuroute_base_settings()
+
+
+.. py:function:: create_mizuroute_network_topology_file()
+
+
+.. py:function:: remap_summa_catchments_to_mizurouting()
+
+
+.. py:function:: create_mizuroute_control_file()
+
+
+.. py:function:: read_summa_base_settings()
+
+
+.. py:function:: copy_summa_base_settings()
+
+
+.. py:function:: create_summa_file_manager()
+
+
+.. py:function:: create_summa_forcing_file_list()
+
+
+.. py:function:: create_cold_state()
+
+
+.. py:function:: create_trial_parameters()
+
+
+.. py:function:: initialize_summa_attributes_nc()
+
+
+.. py:function:: insert_soilclass_from_hist_into_summa_attributes()
+
+
+.. py:function:: insert_landclass_from_hist_into_summa_attributes()
+
+
+.. py:function:: insert_elevation_from_hist_into_summa_attributes()
+
+
+.. py:function:: run_summa()
+
+
+.. py:function:: run_summa_as_array()
+
+
+.. py:function:: run_mizuroute()
+
+
+.. py:function:: plot_mizuroute_and_summa_shapefiles()
+
+
+.. py:function:: plot_ERA5_download_coordinates_and_catchment_shapefile()
+
+
+.. py:function:: plot_forcing_grid_vs_catchment_averaged()
+
+
+.. py:function:: plot_temperature_lapse_rates()
+
+
+.. py:function:: plot_geospatial_parameters_to_model_elements()
+
+
+.. py:function:: plot_SWE_SM_ET_Q_per_GRU()
+
+
+.. py:function:: plot_SWE_and_streamflow_per_HRU()
+
+
+.. py:data:: mwah_sbmodule_folder
+   :annotation: = /Users/ayx374/Documents/GitHub/forks/comphydShared_summa/submodules/summaWorkflow_public
+
+   
+

@@ -1,0 +1,15 @@
+:py:mod:`fairymwah.wrappers`
+============================
+
+.. py:module:: fairymwah.wrappers
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   mwahwrapper/index.rst
+
+

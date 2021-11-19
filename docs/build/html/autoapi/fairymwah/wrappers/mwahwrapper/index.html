@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fairymwah.wrappers.mwahwrapper &mdash; fairymwah 0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> fairymwah
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../wrappers.html">Wrappers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">fairymwah</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">fairymwah.wrappers.mwahwrapper</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/fairymwah/wrappers/mwahwrapper/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-fairymwah.wrappers.mwahwrapper">
+<span id="fairymwah-wrappers-mwahwrapper"></span><h1><a class="reference internal" href="#module-fairymwah.wrappers.mwahwrapper" title="fairymwah.wrappers.mwahwrapper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fairymwah.wrappers.mwahwrapper</span></code></a><a class="headerlink" href="#module-fairymwah.wrappers.mwahwrapper" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.setdefaultpath" title="fairymwah.wrappers.mwahwrapper.setdefaultpath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setdefaultpath</span></code></a>(submodule_path)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.localworkingdir" title="fairymwah.wrappers.mwahwrapper.localworkingdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">localworkingdir</span></code></a>(func)</p></td>
+<td><p>Decorator - Changes working dir to script_path and resets working dir afterwards</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.exec_python_lwd" title="fairymwah.wrappers.mwahwrapper.exec_python_lwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exec_python_lwd</span></code></a>(script_path, *args, **kwargs)</p></td>
+<td><p>Executes python script with localized working directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.subprocess_lwd" title="fairymwah.wrappers.mwahwrapper.subprocess_lwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subprocess_lwd</span></code></a>(script_path, *args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../../wrappers.html#fairymwah.wrappers.mwahwrapper.create_folder_structure" title="fairymwah.wrappers.mwahwrapper.create_folder_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_folder_structure</span></code></a>(submodule_path: str = None)</p></td>
+<td><p>Executes the code from summaWorkflow_public step 1_folder_prep. Description from local python file:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.clone_summa_repo" title="fairymwah.wrappers.mwahwrapper.clone_summa_repo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone_summa_repo</span></code></a>(submodule_path: str = os.path.join(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', '..', 'submodules', 'summaWorkflow_public')))</p></td>
+<td><p>This code downloads the latest version of the code base. sh script.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.compile_summa" title="fairymwah.wrappers.mwahwrapper.compile_summa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compile_summa</span></code></a>(submodule_path: str)</p></td>
+<td><p>[Description]]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.clone_mizuroute_repo" title="fairymwah.wrappers.mwahwrapper.clone_mizuroute_repo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone_mizuroute_repo</span></code></a>(submodule_path: str)</p></td>
+<td><p>[Description]]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.compile_mizuroute" title="fairymwah.wrappers.mwahwrapper.compile_mizuroute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compile_mizuroute</span></code></a>(submodule_path: str)</p></td>
+<td><p>[Description]]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.download_ERA5_pressureLevel_annual" title="fairymwah.wrappers.mwahwrapper.download_ERA5_pressureLevel_annual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download_ERA5_pressureLevel_annual</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.download_ERA5_surfaceLevel_annual" title="fairymwah.wrappers.mwahwrapper.download_ERA5_surfaceLevel_annual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download_ERA5_surfaceLevel_annual</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.run_download_ERA5_pressureLevel_paralell" title="fairymwah.wrappers.mwahwrapper.run_download_ERA5_pressureLevel_paralell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_download_ERA5_pressureLevel_paralell</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.run_download_ERA5_surfaceLevel_paralell" title="fairymwah.wrappers.mwahwrapper.run_download_ERA5_surfaceLevel_paralell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_download_ERA5_surfaceLevel_paralell</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.download_ERA5_geopotential" title="fairymwah.wrappers.mwahwrapper.download_ERA5_geopotential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download_ERA5_geopotential</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.merge_forcing" title="fairymwah.wrappers.mwahwrapper.merge_forcing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_forcing</span></code></a>(submodule_path: str = submodule_path)</p></td>
+<td><p>3a_forcing, 2_merge_forcing</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_ERA5_shapefile" title="fairymwah.wrappers.mwahwrapper.create_ERA5_shapefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_ERA5_shapefile</span></code></a>(submodule_path: str = submodule_path)</p></td>
+<td><p>mwah workflow 3a_forcing, 3_create_shapefile</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.download_merit_hydro_adjusted_elevation" title="fairymwah.wrappers.mwahwrapper.download_merit_hydro_adjusted_elevation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download_merit_hydro_adjusted_elevation</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.unpack_merit_hydro" title="fairymwah.wrappers.mwahwrapper.unpack_merit_hydro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unpack_merit_hydro</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_merit_hydro_virtual_dataset" title="fairymwah.wrappers.mwahwrapper.create_merit_hydro_virtual_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_merit_hydro_virtual_dataset</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.specify_merit_hydro_subdomain" title="fairymwah.wrappers.mwahwrapper.specify_merit_hydro_subdomain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">specify_merit_hydro_subdomain</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.convert_merit_hydro_vrt_to_tif" title="fairymwah.wrappers.mwahwrapper.convert_merit_hydro_vrt_to_tif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_merit_hydro_vrt_to_tif</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.download_modis_mcd12q1_v6" title="fairymwah.wrappers.mwahwrapper.download_modis_mcd12q1_v6"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download_modis_mcd12q1_v6</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_modis_virtual_dataset" title="fairymwah.wrappers.mwahwrapper.create_modis_virtual_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_modis_virtual_dataset</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.reproject_modis_virtual_dataset" title="fairymwah.wrappers.mwahwrapper.reproject_modis_virtual_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reproject_modis_virtual_dataset</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.specify_modis_subdomain" title="fairymwah.wrappers.mwahwrapper.specify_modis_subdomain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">specify_modis_subdomain</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_multiband_modis_vrt" title="fairymwah.wrappers.mwahwrapper.create_multiband_modis_vrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_multiband_modis_vrt</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.convert_modis_vrt_to_tif" title="fairymwah.wrappers.mwahwrapper.convert_modis_vrt_to_tif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_modis_vrt_to_tif</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.find_mode_modis_landclass" title="fairymwah.wrappers.mwahwrapper.find_mode_modis_landclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_mode_modis_landclass</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.download_soilgrids_soilclass_global" title="fairymwah.wrappers.mwahwrapper.download_soilgrids_soilclass_global"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download_soilgrids_soilclass_global</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.extract_soilgrids_domain" title="fairymwah.wrappers.mwahwrapper.extract_soilgrids_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_soilgrids_domain</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.sort_catchment_shape" title="fairymwah.wrappers.mwahwrapper.sort_catchment_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort_catchment_shape</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.find_HRU_elevation" title="fairymwah.wrappers.mwahwrapper.find_HRU_elevation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_HRU_elevation</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.find_HRU_soil_classes" title="fairymwah.wrappers.mwahwrapper.find_HRU_soil_classes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_HRU_soil_classes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.find_HRU_land_classes" title="fairymwah.wrappers.mwahwrapper.find_HRU_land_classes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_HRU_land_classes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.make_single_weighted_forcing_file" title="fairymwah.wrappers.mwahwrapper.make_single_weighted_forcing_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_single_weighted_forcing_file</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.make_all_weighted_forcing_files" title="fairymwah.wrappers.mwahwrapper.make_all_weighted_forcing_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_all_weighted_forcing_files</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.temperature_lapsing_and_datastep" title="fairymwah.wrappers.mwahwrapper.temperature_lapsing_and_datastep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">temperature_lapsing_and_datastep</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.read_mizuroute_base_settings" title="fairymwah.wrappers.mwahwrapper.read_mizuroute_base_settings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_mizuroute_base_settings</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.copy_mizuroute_base_settings" title="fairymwah.wrappers.mwahwrapper.copy_mizuroute_base_settings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_mizuroute_base_settings</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_mizuroute_network_topology_file" title="fairymwah.wrappers.mwahwrapper.create_mizuroute_network_topology_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_mizuroute_network_topology_file</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.remap_summa_catchments_to_mizurouting" title="fairymwah.wrappers.mwahwrapper.remap_summa_catchments_to_mizurouting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remap_summa_catchments_to_mizurouting</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_mizuroute_control_file" title="fairymwah.wrappers.mwahwrapper.create_mizuroute_control_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_mizuroute_control_file</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.read_summa_base_settings" title="fairymwah.wrappers.mwahwrapper.read_summa_base_settings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_summa_base_settings</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.copy_summa_base_settings" title="fairymwah.wrappers.mwahwrapper.copy_summa_base_settings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_summa_base_settings</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_summa_file_manager" title="fairymwah.wrappers.mwahwrapper.create_summa_file_manager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_summa_file_manager</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_summa_forcing_file_list" title="fairymwah.wrappers.mwahwrapper.create_summa_forcing_file_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_summa_forcing_file_list</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_cold_state" title="fairymwah.wrappers.mwahwrapper.create_cold_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_cold_state</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.create_trial_parameters" title="fairymwah.wrappers.mwahwrapper.create_trial_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_trial_parameters</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.initialize_summa_attributes_nc" title="fairymwah.wrappers.mwahwrapper.initialize_summa_attributes_nc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_summa_attributes_nc</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.insert_soilclass_from_hist_into_summa_attributes" title="fairymwah.wrappers.mwahwrapper.insert_soilclass_from_hist_into_summa_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_soilclass_from_hist_into_summa_attributes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.insert_landclass_from_hist_into_summa_attributes" title="fairymwah.wrappers.mwahwrapper.insert_landclass_from_hist_into_summa_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_landclass_from_hist_into_summa_attributes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.insert_elevation_from_hist_into_summa_attributes" title="fairymwah.wrappers.mwahwrapper.insert_elevation_from_hist_into_summa_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_elevation_from_hist_into_summa_attributes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.run_summa" title="fairymwah.wrappers.mwahwrapper.run_summa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_summa</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.run_summa_as_array" title="fairymwah.wrappers.mwahwrapper.run_summa_as_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_summa_as_array</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.run_mizuroute" title="fairymwah.wrappers.mwahwrapper.run_mizuroute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_mizuroute</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.plot_mizuroute_and_summa_shapefiles" title="fairymwah.wrappers.mwahwrapper.plot_mizuroute_and_summa_shapefiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_mizuroute_and_summa_shapefiles</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.plot_ERA5_download_coordinates_and_catchment_shapefile" title="fairymwah.wrappers.mwahwrapper.plot_ERA5_download_coordinates_and_catchment_shapefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_ERA5_download_coordinates_and_catchment_shapefile</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.plot_forcing_grid_vs_catchment_averaged" title="fairymwah.wrappers.mwahwrapper.plot_forcing_grid_vs_catchment_averaged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_forcing_grid_vs_catchment_averaged</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.plot_temperature_lapse_rates" title="fairymwah.wrappers.mwahwrapper.plot_temperature_lapse_rates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_temperature_lapse_rates</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.plot_geospatial_parameters_to_model_elements" title="fairymwah.wrappers.mwahwrapper.plot_geospatial_parameters_to_model_elements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_geospatial_parameters_to_model_elements</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.plot_SWE_SM_ET_Q_per_GRU" title="fairymwah.wrappers.mwahwrapper.plot_SWE_SM_ET_Q_per_GRU"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_SWE_SM_ET_Q_per_GRU</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.plot_SWE_and_streamflow_per_HRU" title="fairymwah.wrappers.mwahwrapper.plot_SWE_and_streamflow_per_HRU"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_SWE_and_streamflow_per_HRU</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.submodule_path" title="fairymwah.wrappers.mwahwrapper.submodule_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submodule_path</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fairymwah.wrappers.mwahwrapper.mwah_sbmodule_folder" title="fairymwah.wrappers.mwahwrapper.mwah_sbmodule_folder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mwah_sbmodule_folder</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.submodule_path">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">submodule_path</span></span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.submodule_path" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.setdefaultpath">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">setdefaultpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.setdefaultpath" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.localworkingdir">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">localworkingdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.localworkingdir" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator - Changes working dir to script_path and resets working dir afterwards</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.exec_python_lwd">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">exec_python_lwd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script_path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.exec_python_lwd" title="Permalink to this definition"></a></dt>
+<dd><p>Executes python script with localized working directory.
+Changes working dir to folder of python script before executing.
+Then changes back to original working directory.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>script_path (path string): Path to python script</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.subprocess_lwd">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">subprocess_lwd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script_path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.subprocess_lwd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_folder_structure">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_folder_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_folder_structure" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the code from summaWorkflow_public step 1_folder_prep. Description from local python file:
+SUMMA workflow: make folder structure
+Makes the initial folder structure for a given control file. All other files in the workflow will look for the file <cite>control_active.txt</cite> during their execution. This script:</p>
+<ol class="arabic simple">
+<li><p>Copies the specified control file into <cite>control_active.txt</cite>;</p></li>
+<li><p>Prepares a folder structure using the settings in <cite>control_active.txt</cite>.</p></li>
+<li><p>Creates a copy of itself to be stored in the new folder structure.</p></li>
+</ol>
+<p>The destination folders are referred to as “domain folders”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>submodule_path</strong> (<em>str</em>) – path to the summaWorkflow_public repository. Defaults to “../submodules/summaWorkflow_public”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.clone_summa_repo">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">clone_summa_repo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">os.path.join(os.path.join(os.path.dirname(os.path.realpath(__file__)),</span> <span class="pre">'..',</span> <span class="pre">'..',</span> <span class="pre">'submodules',</span> <span class="pre">'summaWorkflow_public'))</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.clone_summa_repo" title="Permalink to this definition"></a></dt>
+<dd><p>This code downloads the latest version of the code base. sh script.
+Settings are given in the control file of mwah.</p>
+<p>Relevant settings in <cite>control_active.txt</cite> that the code in this folder uses:
+- <strong>github_summa, github_mizu</strong>: GitHub URLs from which to clone SUMMA and mizuRoute.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>submodule_path (str, optional): path to the summaWorkflow_public repository.
+Defaults to “../submodules/summaWorkflow_public”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.compile_summa">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">compile_summa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.compile_summa" title="Permalink to this definition"></a></dt>
+<dd><p>[Description]]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>submodule_path (str, optional): path to the summaWorkflow_public repository.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.clone_mizuroute_repo">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">clone_mizuroute_repo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.clone_mizuroute_repo" title="Permalink to this definition"></a></dt>
+<dd><p>[Description]]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>submodule_path (str, optional): path to the summaWorkflow_public repository.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.compile_mizuroute">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">compile_mizuroute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.compile_mizuroute" title="Permalink to this definition"></a></dt>
+<dd><p>[Description]]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>submodule_path (str, optional): path to the summaWorkflow_public repository.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.download_ERA5_pressureLevel_annual">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">download_ERA5_pressureLevel_annual</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.download_ERA5_pressureLevel_annual" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.download_ERA5_surfaceLevel_annual">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">download_ERA5_surfaceLevel_annual</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.download_ERA5_surfaceLevel_annual" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.run_download_ERA5_pressureLevel_paralell">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">run_download_ERA5_pressureLevel_paralell</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.run_download_ERA5_pressureLevel_paralell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.run_download_ERA5_surfaceLevel_paralell">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">run_download_ERA5_surfaceLevel_paralell</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.run_download_ERA5_surfaceLevel_paralell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.download_ERA5_geopotential">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">download_ERA5_geopotential</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.download_ERA5_geopotential" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.merge_forcing">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">merge_forcing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">submodule_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.merge_forcing" title="Permalink to this definition"></a></dt>
+<dd><p>3a_forcing, 2_merge_forcing
+Combine separate surface and pressure level downloads
+Creates a single monthly <cite>.nc</cite> file with SUMMA-ready variables for further processing.
+Combines ERA5’s <cite>u</cite> and <cite>v</cite> wind components into a single directionless wind vector.</p>
+<p>This script goes through the following steps:
+1. Convert longitude coordinates in pressureLevel file to range [-180,180]
+2. Checks
+- are lat/lon the same for both data sets?
+- are times the same for both datasets?
+3. Aggregate data into a single file ‘ERA5_NA_[yyyymm].nc’, keeping the relevant metadata in place</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Args:</dt><dd><p>submodule_path (str, optional): path to the summaWorkflow_public repository. Defaults to submodule_path.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_ERA5_shapefile">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_ERA5_shapefile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">submodule_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">submodule_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_ERA5_shapefile" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>mwah workflow 3a_forcing, 3_create_shapefile</dt><dd><p>The shapefile for the forcing data needs to represent the regular latitude/longitude grid of the ERA5 data. We need this for later intersection with the catchment shape(s) so we can create appropriately weighted forcing for each model element.</p>
+</dd>
+</dl>
+<p>Notebook/script reads location of merged forcing data and the spatial extent of the data from the control file.</p>
+<p>## Assumptions not included in <cite>control_active.txt</cite>
+- Code assumes that the merged forcing contains dimension variables with the names “latitude” and “longitude”. This is the case for ERA5.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Args:</dt><dd><p>submodule_path (str, optional): [description]. Defaults to submodule_path.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.download_merit_hydro_adjusted_elevation">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">download_merit_hydro_adjusted_elevation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.download_merit_hydro_adjusted_elevation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.unpack_merit_hydro">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">unpack_merit_hydro</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.unpack_merit_hydro" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_merit_hydro_virtual_dataset">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_merit_hydro_virtual_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_merit_hydro_virtual_dataset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.specify_merit_hydro_subdomain">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">specify_merit_hydro_subdomain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.specify_merit_hydro_subdomain" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.convert_merit_hydro_vrt_to_tif">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">convert_merit_hydro_vrt_to_tif</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.convert_merit_hydro_vrt_to_tif" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.download_modis_mcd12q1_v6">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">download_modis_mcd12q1_v6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.download_modis_mcd12q1_v6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_modis_virtual_dataset">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_modis_virtual_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_modis_virtual_dataset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.reproject_modis_virtual_dataset">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">reproject_modis_virtual_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.reproject_modis_virtual_dataset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.specify_modis_subdomain">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">specify_modis_subdomain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.specify_modis_subdomain" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_multiband_modis_vrt">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_multiband_modis_vrt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_multiband_modis_vrt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.convert_modis_vrt_to_tif">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">convert_modis_vrt_to_tif</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.convert_modis_vrt_to_tif" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.find_mode_modis_landclass">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">find_mode_modis_landclass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.find_mode_modis_landclass" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.download_soilgrids_soilclass_global">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">download_soilgrids_soilclass_global</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.download_soilgrids_soilclass_global" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.extract_soilgrids_domain">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">extract_soilgrids_domain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.extract_soilgrids_domain" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.sort_catchment_shape">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">sort_catchment_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.sort_catchment_shape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.find_HRU_elevation">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">find_HRU_elevation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.find_HRU_elevation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.find_HRU_soil_classes">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">find_HRU_soil_classes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.find_HRU_soil_classes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.find_HRU_land_classes">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">find_HRU_land_classes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.find_HRU_land_classes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.make_single_weighted_forcing_file">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">make_single_weighted_forcing_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.make_single_weighted_forcing_file" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.make_all_weighted_forcing_files">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">make_all_weighted_forcing_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.make_all_weighted_forcing_files" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.temperature_lapsing_and_datastep">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">temperature_lapsing_and_datastep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.temperature_lapsing_and_datastep" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.read_mizuroute_base_settings">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">read_mizuroute_base_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.read_mizuroute_base_settings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.copy_mizuroute_base_settings">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">copy_mizuroute_base_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.copy_mizuroute_base_settings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_mizuroute_network_topology_file">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_mizuroute_network_topology_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_mizuroute_network_topology_file" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.remap_summa_catchments_to_mizurouting">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">remap_summa_catchments_to_mizurouting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.remap_summa_catchments_to_mizurouting" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_mizuroute_control_file">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_mizuroute_control_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_mizuroute_control_file" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.read_summa_base_settings">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">read_summa_base_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.read_summa_base_settings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.copy_summa_base_settings">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">copy_summa_base_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.copy_summa_base_settings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_summa_file_manager">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_summa_file_manager</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_summa_file_manager" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_summa_forcing_file_list">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_summa_forcing_file_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_summa_forcing_file_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_cold_state">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_cold_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_cold_state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.create_trial_parameters">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">create_trial_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.create_trial_parameters" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.initialize_summa_attributes_nc">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">initialize_summa_attributes_nc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.initialize_summa_attributes_nc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.insert_soilclass_from_hist_into_summa_attributes">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">insert_soilclass_from_hist_into_summa_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.insert_soilclass_from_hist_into_summa_attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.insert_landclass_from_hist_into_summa_attributes">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">insert_landclass_from_hist_into_summa_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.insert_landclass_from_hist_into_summa_attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.insert_elevation_from_hist_into_summa_attributes">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">insert_elevation_from_hist_into_summa_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.insert_elevation_from_hist_into_summa_attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.run_summa">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">run_summa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.run_summa" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.run_summa_as_array">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">run_summa_as_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.run_summa_as_array" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.run_mizuroute">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">run_mizuroute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.run_mizuroute" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.plot_mizuroute_and_summa_shapefiles">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">plot_mizuroute_and_summa_shapefiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.plot_mizuroute_and_summa_shapefiles" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.plot_ERA5_download_coordinates_and_catchment_shapefile">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">plot_ERA5_download_coordinates_and_catchment_shapefile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.plot_ERA5_download_coordinates_and_catchment_shapefile" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.plot_forcing_grid_vs_catchment_averaged">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">plot_forcing_grid_vs_catchment_averaged</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.plot_forcing_grid_vs_catchment_averaged" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.plot_temperature_lapse_rates">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">plot_temperature_lapse_rates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.plot_temperature_lapse_rates" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.plot_geospatial_parameters_to_model_elements">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">plot_geospatial_parameters_to_model_elements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.plot_geospatial_parameters_to_model_elements" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.plot_SWE_SM_ET_Q_per_GRU">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">plot_SWE_SM_ET_Q_per_GRU</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.plot_SWE_SM_ET_Q_per_GRU" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.plot_SWE_and_streamflow_per_HRU">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">plot_SWE_and_streamflow_per_HRU</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.plot_SWE_and_streamflow_per_HRU" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="fairymwah.wrappers.mwahwrapper.mwah_sbmodule_folder">
+<span class="sig-prename descclassname"><span class="pre">fairymwah.wrappers.mwahwrapper.</span></span><span class="sig-name descname"><span class="pre">mwah_sbmodule_folder</span></span><em class="property"> <span class="pre">=</span> <span class="pre">/Users/ayx374/Documents/GitHub/forks/comphydShared_summa/submodules/summaWorkflow_public</span></em><a class="headerlink" href="#fairymwah.wrappers.mwahwrapper.mwah_sbmodule_folder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, USask Computational Hydrology Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

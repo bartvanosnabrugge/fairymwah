@@ -1,0 +1,19 @@
+:py:mod:`fairymwah`
+===================
+
+.. py:module:: fairymwah
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   dsil/index.rst
+   mael/index.rst
+   mspl/index.rst
+   util/index.rst
+   wrappers/index.rst
+
+
