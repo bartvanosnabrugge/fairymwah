@@ -12,17 +12,18 @@
 #
 import pathlib
 import sys
+
 sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'fairymwah'
-copyright = '2021, USask Computational Hydrology Group'
-author = 'Bart van Osnabrugge'
+project = "fairymwah"
+copyright = "2021, USask Computational Hydrology Group"
+author = "Bart van Osnabrugge"
 
 # The full version, including alpha/beta/rc tags
-release = '0.1 alpha'
+release = "0.1 alpha"
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,20 +32,20 @@ release = '0.1 alpha'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.duration',
-    'sphinx.ext.doctest',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
+    "sphinx.ext.duration",
+    "sphinx.ext.doctest",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
 ]
 autosummary_generate = True
 
-#extensions.append('autoapi.extension')
-#autoapi_type = 'python'
-#autoapi_dirs = ['../../fairymwah']
+# extensions.append('autoapi.extension')
+# autoapi_type = 'python'
+# autoapi_dirs = ['../../fairymwah']
 
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -62,4 +63,4 @@ html_theme = "sphinx_rtd_theme"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]

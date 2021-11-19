@@ -16,3 +16,4 @@ dependencies:
   - pip:
     - easymore
     - sphinx-rtd-theme
+    - black
