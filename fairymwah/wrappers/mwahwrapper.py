@@ -5,7 +5,7 @@ import os
 import subprocess
 import functools
 
-submodule_path = os.path.join(
+submodule_path_default = os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
     "..",
     "..",
@@ -14,7 +14,7 @@ submodule_path = os.path.join(
 )
 
 
-def setdefaultpath(submodule_path):
+def set_default_path(submodule_path):
     if not submodule_path:
         submodule_path = os.path.join(
             os.path.dirname(os.path.realpath(__file__)),
@@ -53,18 +53,29 @@ def exec_python_lwd(script_path, *args, **kwargs):
     """
     main_working_dir = os.getcwd()
     script_dir = os.path.dirname(script_path)
+    print("running wrapper for {}".format(script_path))
     os.chdir(script_dir)
     exec(open(script_path).read(), globals(), globals())
     os.chdir(main_working_dir)
 
-
+#TODO write documentation
+#TODO finish up subprocess call
 def subprocess_lwd(script_path, *args, **kwargs):
     main_working_dir = os.getcwd()
+    working_env = os.environ.copy()
+    #print(working_env['PATH'])
     script_dir = os.path.dirname(script_path)
+    print("running wrapper for {}".format(script_path))
     os.chdir(script_dir)
-    subprocess.call(["sh", script_path])
+    subprocess.run(["sh",script_path])
+    #subprocess.run(['conda info | grep -i "base environment"' , script_path],env=working_env,shell=True)
+    #subprocess.run(["bash -c 'source ~/opt/anaconda3/bin/activate summa-env'" , 'echo yes',script_path],shell=True)
+    #subprocess.Popen(script_path,env=working_env)
+    #proc = subprocess.run(['conda activate summa-env','conda env list'],executable="/bin/bash",shell=False)
+    #subprocess.run(". ~/opt/anaconda3/etc/profile.d/conda.sh && conda activate summa-env && {}".format(script_path),shell=True)
+    #subprocess.run(". ~/opt/anaconda3/etc/profile.d/conda.sh && conda env list",shell=True)
+    #print(proc)
     os.chdir(main_working_dir)
-
 
 #%% From here the wrapper functions start
 
@@ -131,7 +142,7 @@ def compile_summa(submodule_path: str):
     """[Description]]
 
     Args:
-        submodule_path (str, optional): path to the summaWorkflow_public repository.
+        submodule_path (str: path to the summaWorkflow_public repository.
     """
     script_path = os.path.join(submodule_path, "2_install", "1b_compile_summa.sh")
     subprocess_lwd(script_path)
@@ -158,27 +169,74 @@ def compile_mizuroute(submodule_path: str):
 
 
 ### 3a forcing
-def download_ERA5_pressureLevel_annual():
-    pass
+def download_ERA5_pressureLevel_annual(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def download_ERA5_surfaceLevel_annual():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "3a_forcing", "1a_download_forcing", "download_ERA5_pressureLevel_annual.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def run_download_ERA5_pressureLevel_paralell():
-    pass
+def download_ERA5_surfaceLevel_annual(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def run_download_ERA5_surfaceLevel_paralell():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "3a_forcing", "1a_download_forcing", "download_ERA5_surfaceLevel_annual.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def download_ERA5_geopotential():
-    pass
+def run_download_ERA5_pressureLevel_paralell(submodule_path: str):
+
+    """[Description]]
+
+    Args:
+        submodule_path (str: path to the summaWorkflow_public repository.
+    """
+    script_path = os.path.join(submodule_path, "3a_forcing", "1a_download_forcing", "run_download_ERA5_pressureLevel.sh")
+    subprocess_lwd(script_path)
 
 
-def merge_forcing(submodule_path: str = submodule_path):
+def run_download_ERA5_surfaceLevel_paralell(submodule_path: str):
+
+    """[Description]]
+
+    Args:
+        submodule_path (str: path to the summaWorkflow_public repository.
+    """
+    script_path = os.path.join(submodule_path, "3a_forcing", "1a_download_forcing", "run_download_ERA5_surfaceLevel.sh")
+    subprocess_lwd(script_path)
+
+
+def download_ERA5_geopotential(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "3a_forcing", "1b_download_geopotential", "download_ERA5_geopotential.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def merge_forcing(submodule_path: str = submodule_path_default):
     """3a_forcing, 2_merge_forcing
     Combine separate surface and pressure level downloads
     Creates a single monthly `.nc` file with SUMMA-ready variables for further processing.
@@ -204,7 +262,7 @@ def merge_forcing(submodule_path: str = submodule_path):
     exec_python_lwd(python_file_to_run)
 
 
-def create_ERA5_shapefile(submodule_path: str = submodule_path):
+def create_ERA5_shapefile(submodule_path: str = submodule_path_default):
     """mwah workflow 3a_forcing, 3_create_shapefile
         The shapefile for the forcing data needs to represent the regular latitude/longitude grid of the ERA5 data. We need this for later intersection with the catchment shape(s) so we can create appropriately weighted forcing for each model element.
 
@@ -227,98 +285,329 @@ def create_ERA5_shapefile(submodule_path: str = submodule_path):
 ## Merit Hydro
 
 
-def download_merit_hydro_adjusted_elevation():
-    pass
+def download_merit_hydro_adjusted_elevation(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def unpack_merit_hydro():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MERIT_Hydro_DEM", "1_download", "download_merit_hydro_adjusted_elevation.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def create_merit_hydro_virtual_dataset():
-    pass
+def unpack_merit_hydro(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def specify_merit_hydro_subdomain():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MERIT_Hydro_DEM", "2_unpack", "unpack_merit_hydro_dem.sh"
+    )
+
+    subprocess_lwd(python_file_to_run)
 
 
-def convert_merit_hydro_vrt_to_tif():
-    pass
+def create_merit_hydro_virtual_dataset(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MERIT_Hydro_DEM", "3_create_vrt", "make_merit_dem_vrt.sh"
+    )
+
+    subprocess_lwd(file_to_run)
+
+
+def specify_merit_hydro_subdomain(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MERIT_Hydro_DEM", "4_specify_subdomain", "specify_subdomain.sh"
+    )
+
+    subprocess_lwd(file_to_run)
+
+
+def convert_merit_hydro_vrt_to_tif(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MERIT_Hydro_DEM", "5_convert_to_tif", "convert_vrt_to_tif.sh"
+    )
+
+    subprocess_lwd(file_to_run)
 
 
 ## MODIS
 
 
-def download_modis_mcd12q1_v6():
-    pass
+def download_modis_mcd12q1_v6(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def create_modis_virtual_dataset():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MODIS_MCD12Q1_V6", "1_download", "download_modis_mcd12q1_v6.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def reproject_modis_virtual_dataset():
-    pass
+def create_modis_virtual_dataset(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def specify_modis_subdomain():
-    pass
+    file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MODIS_MCD12Q1_V6", "2_create_vrt", "make_vrt_per_year.sh"
+    )
+
+    subprocess_lwd(file_to_run)
 
 
-def create_multiband_modis_vrt():
-    pass
+def reproject_modis_virtual_dataset(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def convert_modis_vrt_to_tif():
-    pass
+    file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MODIS_MCD12Q1_V6", "3_reproject_vrt", "reproject_vrt.sh"
+    )
+
+    subprocess_lwd(file_to_run)
 
 
-def find_mode_modis_landclass():
-    pass
+def specify_modis_subdomain(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MODIS_MCD12Q1_V6", "4_specify_subdomain", "specify_subdomain.sh"
+    )
+
+    subprocess_lwd(file_to_run)
+
+
+def create_multiband_modis_vrt(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MODIS_MCD12Q1_V6", "5_multiband_vrt", "create_multiband_vrt.sh"
+    )
+
+    subprocess_lwd(file_to_run)
+
+
+def convert_modis_vrt_to_tif(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MODIS_MCD12Q1_V6", "6_convert_to_tif", "convert_vrt_to_tif.sh"
+    )
+
+    subprocess_lwd(file_to_run)
+
+
+def find_mode_modis_landclass(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "MODIS_MCD12Q1_V6", "7_find_mode_land_class", "find_mode_landclass.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
 ### Soilgrids
 
 
-def download_soilgrids_soilclass_global():
-    pass
+def download_soilgrids_soilclass_global(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def extract_soilgrids_domain():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "SOILGRIDS", "1_download", "download_soilclass_global_map.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def extract_soilgrids_domain(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "3b_parameters", "SOILGRIDS", "2_extract_domain", "extract_domain.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
 ### 4a sort shape
-def sort_catchment_shape():
-    pass
+def sort_catchment_shape(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "4a_sort_shape", "1_sort_catchment_shape.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
 ### 4b remapping
 ## 1 topo
-def find_HRU_elevation():
-    pass
+def find_HRU_elevation(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def find_HRU_soil_classes():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "4b_remapping", "1_topo", "1_find_HRU_elevation.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def find_HRU_land_classes():
-    pass
+def find_HRU_soil_classes(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "4b_remapping", "1_topo", "2_find_HRU_soil_classes.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def find_HRU_land_classes(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "4b_remapping", "1_topo", "3_find_HRU_land_classes.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
 ## 2 forcing
-def make_single_weighted_forcing_file():
-    pass
+def make_single_weighted_forcing_file(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def make_all_weighted_forcing_files():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "4b_remapping", "2_forcing", "1_make_one_weighted_forcing_file.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def temperature_lapsing_and_datastep():
-    pass
+def make_all_weighted_forcing_files(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "4b_remapping", "2_forcing", "2_make_all_weighted_forcing_files.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def temperature_lapsing_and_datastep(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "4b_remapping", "2_forcing", "3_temperature_lapsing_and_datastep.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
 ### 5 model input
@@ -327,20 +616,64 @@ def read_mizuroute_base_settings():
     pass
 
 
-def copy_mizuroute_base_settings():
-    pass
+def copy_mizuroute_base_settings(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def create_mizuroute_network_topology_file():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "mizuRoute","1a_copy_base_settings", "1_copy_base_settings.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def remap_summa_catchments_to_mizurouting():
-    pass
+def create_mizuroute_network_topology_file(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def create_mizuroute_control_file():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "mizuRoute","1b_network_topology_file", "1_create_network_topology_file.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def remap_summa_catchments_to_mizurouting(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "mizuRoute","1c_optional_remapping_file", "1_remap_summa_catchments_to_routing.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def create_mizuroute_control_file(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "mizuRoute","1d_control_file", "1_create_control_file.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
 ## SUMMA
@@ -348,56 +681,188 @@ def read_summa_base_settings():
     pass
 
 
-def copy_summa_base_settings():
-    pass
+def copy_summa_base_settings(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def create_summa_file_manager():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1a_copy_base_settings", "1_copy_base_settings.py"
+    )
+    
+    exec_python_lwd(python_file_to_run)
 
 
-def create_summa_forcing_file_list():
-    pass
+def create_summa_file_manager(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def create_cold_state():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1b_file_manager", "1_create_file_manager.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def create_trial_parameters():
-    pass
+def create_summa_forcing_file_list(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1c_forcing_file_list", "1_create_forcing_file_list.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def create_summa_cold_state(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1d_initial_conditions", "1_create_coldState.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def create_summa_trial_parameters(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1e_trial_parameters", "1_create_trialParams.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
 # attributes
 
 
-def initialize_summa_attributes_nc():
-    pass
+def initialize_summa_attributes_nc(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def insert_soilclass_from_hist_into_summa_attributes():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1f_attributes", "1_initialize_attributes_nc.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
-def insert_landclass_from_hist_into_summa_attributes():
-    pass
+def insert_soilclass_from_hist_into_summa_attributes(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def insert_elevation_from_hist_into_summa_attributes():
-    pass
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1f_attributes", "2a_insert_soilclass_from_hist_into_attributes.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def insert_landclass_from_hist_into_summa_attributes(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1f_attributes", "2b_insert_landclass_from_hist_into_attributes.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
+
+
+def insert_elevation_from_hist_into_summa_attributes(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    python_file_to_run = os.path.join(
+        submodule_path, "5_model_input", "SUMMA","1f_attributes", "2c_insert_elevation_into_attributes.py"
+    )
+
+    exec_python_lwd(python_file_to_run)
 
 
 ### 6 Model runs
-def run_summa():
-    pass
+def run_summa(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
 
 
-def run_summa_as_array():
-    pass
+    file_to_run = os.path.join(
+        submodule_path, "6_model_runs", "1_run_summa.sh"
+    )
+
+    subprocess_lwd(file_to_run)
 
 
-def run_mizuroute():
-    pass
+def run_summa_as_array(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    file_to_run = os.path.join(
+        submodule_path, "6_model_runs", "1_run_summa_as_array.sh"
+    )
+
+    subprocess_lwd(file_to_run)
+
+
+def run_mizuroute(submodule_path: str):
+    """[description]
+
+    :param submodule_path: path to the summaWorkflow_public repository.
+    :type submodule_path: str
+    """
+
+
+    file_to_run = os.path.join(
+        submodule_path, "6_model_runs", "2_run_mizuRoute.sh"
+    )
+
+    subprocess_lwd(file_to_run)
 
 
 ### 7 Visualization
@@ -436,6 +901,7 @@ mwah_sbmodule_folder = "/Users/ayx374/Documents/GitHub/forks/comphydShared_summa
 
 # create_folder_structure(mwah_sbmodule_folder)
 # clone_summa_repo(mwah_sbmodule_folder)
-clone_mizuroute_repo(mwah_sbmodule_folder)
+# clone_mizuroute_repo(mwah_sbmodule_folder)
 # merge_forcing(mwah_sbmodule_folder)
 # create_ERA5_shapefile(mwah_sbmodule_folder)
+#create_modis_virtual_dataset(mwah_sbmodule_folder)
