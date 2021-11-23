@@ -22,6 +22,10 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.pyc
 
 # Sphinx documentation
 docs/_build/
+
+# test suite
+tests/*/results
